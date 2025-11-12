@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Disable USB device 1-3 from waking up the system
 echo "disabled" | sudo tee /sys/bus/usb/devices/1-3/power/wakeup > /dev/null
