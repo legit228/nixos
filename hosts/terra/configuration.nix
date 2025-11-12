@@ -45,7 +45,7 @@
     shell = pkgs.zsh;
     extraGroups = [
       "networkmanager"
-      "doas"
+      "wheel"
       "video"
       "input"
       "plugdev"
