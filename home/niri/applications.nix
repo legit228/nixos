@@ -1,4 +1,6 @@
-{ pkgs }:
+{
+  pkgs,
+}:
 
 {
   #  browser = "${pkgs.firefox}/bin/firefox";

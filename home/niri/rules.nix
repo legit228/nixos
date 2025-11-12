@@ -1,6 +1,7 @@
 {
   ...
 }:
+
 {
   programs.niri.settings = {
     layer-rules = [

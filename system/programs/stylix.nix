@@ -2,6 +2,7 @@
   pkgs,
   ...
 }:
+
 {
   stylix = {
     enable = true;

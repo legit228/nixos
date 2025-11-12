@@ -1,4 +1,7 @@
-{ pkgs, config, ... }:
+{
+  ...
+}:
+
 {
   programs.ghostty = {
     enable = true;
@@ -6,7 +9,7 @@
       font-size = 11;
       font-family = "JetBrainsMono Nerd Font";
 
-#      theme = "wallust";
+      #      theme = "wallust";
       theme = "stylix";
 
       window-decoration = false;

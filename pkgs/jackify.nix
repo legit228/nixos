@@ -3,6 +3,7 @@
   fetchurl,
   lib,
 }:
+
 let
   version = "0.1.6.6";
   pname = "Jackify";

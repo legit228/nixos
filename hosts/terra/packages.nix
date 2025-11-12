@@ -3,6 +3,7 @@
   inputs,
   ...
 }:
+
 let
   jackify = pkgs.callPackage ../../pkgs/jackify.nix { };
 in

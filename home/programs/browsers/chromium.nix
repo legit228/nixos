@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  ...
+}:
+
+{
   # check chromium-nixos.nix
   programs.chromium = {
     enable = true;
@@ -13,14 +18,15 @@
       "--enable-features=AcceleratedVideoDecodeLinuxGL"
       "--enable-parallel-downloading"
     ];
-    extensions = let
-      ids = [
-        "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
-        "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
-        "ghmbeldphafepmbegfdlkpapadhbakde" # Proton Pass
-        "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
-      ];
-    in
-      builtins.map (id: {inherit id;}) ids;
+    extensions =
+      let
+        ids = [
+          "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
+          "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
+          "ghmbeldphafepmbegfdlkpapadhbakde" # Proton Pass
+          "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
+        ];
+      in
+      builtins.map (id: { inherit id; }) ids;
   };
 }

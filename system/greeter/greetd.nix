@@ -1,7 +1,4 @@
 {
-  config,
-  pkgs,
-  inputs,
   ...
 }:
 
@@ -10,8 +7,8 @@
     enable = true;
     settings = {
       default_session = {
-#        command = "${pkgs.tuigreet}/bin/tuigreet --remember  --asterisks  --container-padding 2 --no-xsession-wrapper --cmd niri-session";
-#        user = "greeter";
+        #command = "${pkgs.tuigreet}/bin/tuigreet --remember  --asterisks  --container-padding 2 --no-xsession-wrapper --cmd niri-session";
+        #user = "greeter";
         # Starts niri session logged in automatically without prompt
         command = "niri-session";
         user = "chris";
@@ -42,17 +39,17 @@
     };
   };
 
-#  systemd = {
-    # To prevent getting stuck at shutdown
-#    extraConfig = "DefaultTimeoutStopSec=10s";
-#    services.greetd.serviceConfig = {
-#      Type = "idle";
-#      StandardInput = "tty";
-#      StandardOutput = "tty";
-#      StandardError = "journal";
-#      TTYReset = true;
-#      TTYVHangup = true;
-#      TTYVTDisallocate = true;
-#    };
-#  };
+  #  systemd = {
+  # To prevent getting stuck at shutdown
+  #    extraConfig = "DefaultTimeoutStopSec=10s";
+  #    services.greetd.serviceConfig = {
+  #      Type = "idle";
+  #      StandardInput = "tty";
+  #      StandardOutput = "tty";
+  #      StandardError = "journal";
+  #      TTYReset = true;
+  #      TTYVHangup = true;
+  #      TTYVTDisallocate = true;
+  #    };
+  #  };
 }
