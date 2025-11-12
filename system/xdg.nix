@@ -1,30 +1,8 @@
-# { pkgs, ... }:
-# {
-#   xdg.portal = {
-#     enable = true;
-#     config = {
-#       common = {
-#         default = [
-#           "wlr"
-#           "gtk"
-#         ]; # wlr first – owns Settings
-#         "org.freedesktop.impl.portal.ScreenCast" = "wlr";
-#         "org.freedesktop.impl.portal.Screenshot" = "wlr";
-#         "org.freedesktop.impl.portal.RemoteDesktop" = "wlr";
-#       };
-#     };
-#     extraPortals = with pkgs; [
-#       xdg-desktop-portal-wlr # provides Settings
-#       xdg-desktop-portal-gtk # provides the rest
-#     ];
-#     configPackages = with pkgs; [
-#       xdg-desktop-portal-wlr
-#       xdg-desktop-portal-gtk
-#     ];
-#   };
-# }
+{
+  pkgs,
+  ...
+}:
 
-{ pkgs, ... }:
 {
   xdg.portal = {
     enable = true;

@@ -48,12 +48,6 @@
 
     # Star Citizen
     nix-citizen.url = "github:LovingMelody/nix-citizen";
-    #    nix-gaming.url = "github:fufexan/nix-gaming";
-    #    nix-gaming = {
-    #      url = "/home/chris/nix-gaming";
-    #      flake = false;
-    #    };
-    #    nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
 
   };
 
@@ -78,18 +72,6 @@
           # inputs.agenix.nixosModules.default
           chaotic.nixosModules.default
           inputs.nix-citizen.nixosModules.StarCitizen
-          # {
-          # nix-citizen.starCitizen = {
-          # Enables the star citizen module
-          # enable = true;
-          # umu.enable = true;
-          # Additional commands before the game starts
-          #   preCommands = ''
-          #     export DXVK_HUD=compiler;
-          #     export MANGO_HUD=1;
-          #   '';
-          # };
-          # }
         ];
       };
     };
