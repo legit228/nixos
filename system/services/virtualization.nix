@@ -22,5 +22,7 @@
 
     qemu
     quickemu
+
+    distrobox
   ];
 }
