@@ -55,6 +55,11 @@
     ddcutil
     localsend # AirDrop alternative
 
+    # Connect to iPhone over USB
+    usbmuxd
+    libimobiledevice
+    ideviceinstaller
+
     # Local AI
     koboldcpp # AI
     ollama-rocm # AI
