@@ -45,7 +45,7 @@
   users.users.chris = {
     isNormalUser = true;
     description = "chris";
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
     extraGroups = [
       "networkmanager"
       "wheel"
