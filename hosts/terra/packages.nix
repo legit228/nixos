@@ -20,6 +20,8 @@ with pkgs;
   termius
   obsidian
   cider-2
+  jan
+  proton-pass
 
   # Gaming Utilities
   # wineWowPackages.stable
@@ -77,7 +79,13 @@ with pkgs;
   gpu-screen-recorder
   mpv
   cava
-  zoxide
+  zoxide # better `cd`
+  lolcat # make terminal commands pretty
+  cmatrix # fun matrix effect
+
+  # Charm apps (https://charm.land/apps)
+  vhs # turn commands into gifs
+  glow # TUI markdown reader
 
   # For SteamTinkerLaunch (install with protonplus)
   xxd
