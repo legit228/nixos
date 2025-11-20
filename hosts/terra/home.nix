@@ -22,6 +22,7 @@ in
 
     ../../home/programs/gamedev/godot.nix
     ../../home/programs/gamedev/unity.nix
+    ../../home/programs/terminal/nushell.nix
     ../../home/programs/terminal/zoxide.nix
     ../../home/programs/discord.nix
     ../../home/programs/fastfetch.nix
