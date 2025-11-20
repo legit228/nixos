@@ -13,6 +13,7 @@
       "gdscript"
       "catppuccin"
       "catppuccin-icons"
+      "vhs"
     ];
     userSettings = {
       features = {
