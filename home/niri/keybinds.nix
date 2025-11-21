@@ -73,6 +73,9 @@ in
       #   "spotify_player"
       # ];
 
+      # 1Passord quick access
+      "super+p".action = spawn [ "${pkgs._1password-gui}/bin/1password" "--quick-access" ];
+
       "super+f".action = fullscreen-window;
       "super+t".action = toggle-window-floating;
 
