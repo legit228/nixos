@@ -28,7 +28,13 @@
         def ll  [...args] { ls -l  ...(if $args == [] {["."]} else {$args}) | sort-by type name -i }
         def l   [...args] { ls     ...(if $args == [] {["."]} else {$args}) | sort-by type name -i }
 
+        # Disables intro banner
         $env.config.show_banner = false
+
+        $env.EDITOR = "hx"
+
+        # Sets default NixOS flake for `nh` to simplify command to `nh os switch`
+        $env.NH_FLAKE = "/home/${config.home.username}/nixos"
 
         # Sets `nix` to use nushell instead of bash
         source nix-your-shell.nu
