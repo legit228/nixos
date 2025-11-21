@@ -46,6 +46,7 @@ with pkgs;
   # TUI
   btop
   amdgpu_top
+  superfile # TUI file manager
 
   # Desktop
   nwg-look
