@@ -23,6 +23,8 @@
     podman-compose
     podman-tui
     podman-desktop
+    kubectl
+    kind
 
     # QEMU-based virtualization tools
     qemu
