@@ -32,6 +32,7 @@
         $env.config.show_banner = false
 
         $env.EDITOR = "hx"
+        $env.PATH ++= ['~/.local/bin']
 
         # Sets default NixOS flake for `nh` to simplify command to `nh os switch`
         $env.NH_FLAKE = "/home/${config.home.username}/nixos"
