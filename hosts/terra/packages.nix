@@ -35,6 +35,7 @@ with pkgs;
   # Games
   inputs.nix-citizen.packages.${system}.star-citizen-umu
   iw4x-launcher
+  starsector
 
   # CLI Games
   _2048-in-terminal
