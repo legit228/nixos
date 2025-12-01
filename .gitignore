@@ -3,3 +3,4 @@
 .sops.yaml
 secrets
 TODO
+tailscale.nix
