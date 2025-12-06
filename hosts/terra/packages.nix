@@ -6,6 +6,7 @@
 
 let
   jackify = pkgs.callPackage ../../pkgs/jackify.nix { };
+  helium = pkgs.callPackage ../../pkgs/helium.nix { };
 in
 with pkgs;
 [
@@ -30,6 +31,7 @@ with pkgs;
   mono
   sc-controller
   jackify # Linux Wabbajack modding client
+  helium # Chromium-based browser
   minion # ESO modding tool
 
   # Games
