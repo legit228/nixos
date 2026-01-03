@@ -10,6 +10,9 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./disk-config.nix
+    # ./disk-games.nix
+    # ./disk-data.nix
     "${self}/system/greeter/greetd.nix"
     "${self}/system/programs/1password.nix"
     "${self}/system/programs/lact.nix"
@@ -24,7 +27,6 @@
     "${self}/system/services/virtualization.nix"
     "${self}/system/services/sops.nix"
     "${self}/system/services/ssh.nix"
-    "${self}/system/services/tailscale.nix"
     "${self}/system/xdg.nix"
     "${self}/system/environment.nix"
     "${self}/system/packages.nix"
@@ -81,16 +83,16 @@
   ];
 
   # Creates and owns directories for mounted drives
-  systemd.tmpfiles.rules = [
-    "d /games 0755 root root -"
-    "Z /games - chris users -"
+  # systemd.tmpfiles.rules = [
+  #   "d /games 0755 root root -"
+  #   "Z /games - chris users -"
 
-    "d /data 0755 root root -"
-    "Z /data - chris users -"
+  #   "d /data 0755 root root -"
+  #   "Z /data - chris users -"
 
-    "d /data/media 0775 chris media -"
-    "z /data/media - - -"
-  ];
+  #   "d /data/media 0775 chris media -"
+  #   "z /data/media - - -"
+  # ];
 
   boot = {
     loader = {
@@ -100,15 +102,15 @@
     supportedFilesystems = [ "btrfs" ];
     #    kernelPackages = pkgs.linuxPackages_zen;
     #    kernelPackages = pkgs.linuxPackages_cachyos;
-    initrd = {
-      luks.devices = {
-        root = {
-          device = "/dev/disk/by-uuid/dddd0efc-2082-4af1-981d-998a19c607d3";
-          preLVM = true;
-        };
-      };
-      systemd.enable = true;
-    };
+    #    initrd = {
+    #      luks.devices = {
+    #        root = {
+    #          device = "/dev/disk/by-uuid/dddd0efc-2082-4af1-981d-998a19c607d3";
+    #          preLVM = true;
+    #        };
+    #      };
+    #      systemd.enable = true;
+    #    };
     # Needed for Star Citizen
     kernel.sysctl = {
       "vm.max_map_count" = 16777216;
@@ -182,10 +184,10 @@
   networking = {
     hostName = "terra";
     networkmanager.enable = true;
-    wireless = {
-      enable = false;
-      userControlled.enable = false;
-    };
+    # wireless = {
+    #   enable = false;
+    #   userControlled.enable = false;
+    # };
 
     networkmanager = {
       wifi.backend = "wpa_supplicant";
