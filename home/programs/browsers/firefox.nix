@@ -21,8 +21,8 @@
         ];
 
         settings = {
-          # Show previous session on startup (2 = restore session)
-          "browser.startup.page" = 2;
+          # Show previous session on startup (3 = restore session)
+          "browser.startup.page" = 3;
 
           # Remember zoom level per site
           "browser.zoom.siteSpecific" = true;
