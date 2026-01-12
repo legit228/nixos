@@ -63,7 +63,7 @@ with pkgs;
   python3
   gcc
   gh
-  nixfmt-rfc-style
+  nixfmt
   nixpkgs-fmt
   black
 
