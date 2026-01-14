@@ -35,7 +35,7 @@ with pkgs;
   minion # ESO modding tool
 
   # Games
-  inputs.nix-citizen.packages.${system}.star-citizen-umu
+  inputs.nix-citizen.packages.${stdenv.hostPlatform.system}.star-citizen-umu
   iw4x-launcher
   starsector
 
@@ -110,5 +110,5 @@ with pkgs;
   # Niri
   xwayland-satellite
   wl-clipboard
-  inputs.noctalia.packages.${system}.default
+  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
 ]

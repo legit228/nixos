@@ -23,6 +23,7 @@
   environment.systemPackages = with pkgs; [
     wget
     git
+    jujutsu # Modern VCS compatible with git
     gitleaks # Check for any secrets being leaked
     gparted # NEEDS to be system package, run with `sudo -E gparted`
     pavucontrol # PulseAudio volume control
@@ -48,7 +49,7 @@
     alejandra # Nix code formatter
     nil # Nix language server
     nixd # Another language server
-    inputs.agenix.packages.${system}.default # Nix secrets management
+    inputs.agenix.packages.${stdenv.hostPlatform.system}.default # Nix secrets management
     sops # Nix secrets management
     direnv # Shell extension managing environment variables
     base16-schemes # Themeing
