@@ -88,11 +88,7 @@
         keepCurrentChannel.enable = true;
         memberCount.enable = true;
         mentionAvatars.enable = true;
-        messageClickActions = {
-          enable = true;
-          enableDoubleClickToEdit = false;
-          enableDoubleClickToReply = false;
-        };
+        messageClickActions.enable = true;
         messageLatency = {
           enable = true;
           latency = 4;
