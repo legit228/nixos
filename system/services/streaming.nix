@@ -57,11 +57,15 @@
     # };
   };
 
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
+
   environment.systemPackages = with pkgs; [
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
-    protonvpn-gui
 
     nicotine-plus # Soulseek client
     picard # MusicBrainz tagger
