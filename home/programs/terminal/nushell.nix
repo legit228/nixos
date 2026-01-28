@@ -43,11 +43,6 @@
         mkdir ($nu.data-dir | path join "vendor/autoload")
         starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
       '';
-      shellAliases = {
-        vi = "hx";
-        vim = "hx";
-        nano = "hx";
-      };
     };
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
