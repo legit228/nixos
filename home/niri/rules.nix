@@ -33,18 +33,18 @@
 
     window-rules = [
       # Browsers
-      {
-        matches = [
-          { app-id = "firefox"; }
-        ];
-        open-on-workspace = "browser";
-      }
-      {
-        matches = [
-          { app-id = "zen"; }
-        ];
-        open-on-workspace = "browser";
-      }
+      # {
+      #   matches = [
+      #     { app-id = "firefox"; }
+      #   ];
+      #   open-on-workspace = "browser";
+      # }
+      # {
+      #   matches = [
+      #     { app-id = "zen"; }
+      #   ];
+      #   open-on-workspace = "browser";
+      # }
 
       # Discord
       {
