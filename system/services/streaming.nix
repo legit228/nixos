@@ -67,6 +67,7 @@
     jellyfin-web
     jellyfin-ffmpeg
 
+    freetube # YouTube client
     nicotine-plus # Soulseek client
     picard # MusicBrainz tagger
     yt-dlp # YouTube Downloader
