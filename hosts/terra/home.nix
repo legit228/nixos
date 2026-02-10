@@ -18,16 +18,20 @@ in
   imports = [
     ../../home/niri
     ../../home/programs/browsers
+    ../../home/programs/desktop
     ../../home/programs/editors
 
     ../../home/programs/gamedev/godot.nix
     ../../home/programs/gamedev/unity.nix
+    # ../../home/programs/games/bakkesmod.nix
     ../../home/programs/terminal/nushell.nix
     ../../home/programs/terminal/zoxide.nix
     ../../home/programs/discord.nix
+    ../../home/programs/email.nix
     ../../home/programs/fastfetch.nix
     ../../home/programs/ghostty.nix
     ../../home/programs/mangohud.nix
+    ../../home/programs/xremap.nix
 
     ../../system/shell/zsh.nix
 
