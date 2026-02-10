@@ -1,0 +1,9 @@
+{
+  ...
+}:
+
+{
+  services.invidious = {
+    enable = true;
+  };
+}
