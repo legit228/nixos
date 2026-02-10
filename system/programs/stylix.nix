@@ -21,7 +21,7 @@
   environment.variables = {
     GTK_THEME = "stylix";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+    # QT_QPA_PLATFORMTHEME = "qt5ct";
     # GOOGLE_CHROME_FORCE_DARK_MODE = "1";
     # WEBVIEW_FORCE_DARK_MODE = "1";
     # VIVALDI_FORCE_DARK_MODE = "1";
