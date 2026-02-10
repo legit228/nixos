@@ -35,7 +35,6 @@ with pkgs;
   minion # ESO modding tool
 
   # Games
-  inputs.nix-citizen.packages.${stdenv.hostPlatform.system}.star-citizen-umu
   iw4x-launcher
   starsector
 
@@ -56,7 +55,7 @@ with pkgs;
   walker
 
   # Development
-  #  rustup
+  rustup
   #  gleam
   #  ocaml
   #  clojure
@@ -68,9 +67,11 @@ with pkgs;
   black
 
   # Utilities
+  neovim
   jq
   socat
   tree
+  tealdeer
   libnotify
   wl-clipboard
   wlsunset
@@ -98,14 +99,6 @@ with pkgs;
   xwininfo
   yad
   steamtinkerlaunch
-
-  # Quickshell stuff
-  qt6Packages.qt5compat
-  libsForQt5.qt5.qtgraphicaleffects
-  kdePackages.qtbase
-  kdePackages.qtdeclarative
-  kdePackages.qtstyleplugin-kvantum
-  wallust
 
   # Niri
   xwayland-satellite
