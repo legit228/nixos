@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 
@@ -8,7 +9,7 @@
     enable = true;
 
     profiles = {
-      chris = {
+      ${config.home.username} = {
         isDefault = true;
 
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -215,6 +216,6 @@
     };
   };
 
-  stylix.targets.firefox.profileNames = [ "chris" ];
+  stylix.targets.firefox.profileNames = [ "${config.home.username}" ];
   stylix.enableReleaseChecks = false;
 }

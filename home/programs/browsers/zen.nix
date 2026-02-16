@@ -11,7 +11,7 @@
   ];
 
   # Let Stylix know which proffile to affect
-  stylix.targets.zen-browser.profileNames = [ "chris" ];
+  stylix.targets.zen-browser.profileNames = [ "${config.home.username}" ];
 
   xdg.mimeApps =
     let
@@ -112,7 +112,7 @@
         };
       };
 
-    profiles.chris =
+    profiles.${config.home.username} =
       let
         containers = {
           Work = {

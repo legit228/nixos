@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 
@@ -7,7 +8,7 @@
   programs.librewolf = {
     enable = true;
     profiles = {
-      chris = {
+      ${config.home.username} = {
         isDefault = true;
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
@@ -35,5 +36,5 @@
       "webgl.disabled" = true; # may be annoying
     };
   };
-  stylix.targets.librewolf.profileNames = [ "chris" ];
+  stylix.targets.librewolf.profileNames = [ "${config.home.username}" ];
 }
