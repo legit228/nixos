@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   config,
+  self,
   ...
 }:
 
@@ -14,6 +15,9 @@ in
 {
   home.username = "chris";
   home.homeDirectory = "/home/chris";
+
+  # Create .face file for application profile pictures
+  home.file.".face".source = "${self}/assets/profile.jpg";
 
   imports = [
     ../../home/niri
