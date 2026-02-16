@@ -12,6 +12,6 @@
     ./autostart.nix
     ./scripts.nix
 
-    # ./noctaliashell.nix
+    ./noctaliashell.nix
   ];
 }

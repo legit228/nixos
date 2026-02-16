@@ -104,5 +104,4 @@ with pkgs;
   # Niri
   xwayland-satellite
   wl-clipboard
-  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
 ]
