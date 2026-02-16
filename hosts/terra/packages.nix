@@ -1,12 +1,13 @@
 {
   pkgs,
   inputs,
+  self,
   ...
 }:
 
 let
-  jackify = pkgs.callPackage ../../pkgs/jackify.nix { };
-  helium = pkgs.callPackage ../../pkgs/helium.nix { };
+  jackify = pkgs.callPackage "${self}/pkgs/jackify.nix" { };
+  helium = pkgs.callPackage "${self}/pkgs/helium.nix" { };
 in
 with pkgs;
 [

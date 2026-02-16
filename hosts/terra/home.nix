@@ -7,7 +7,7 @@
 }:
 
 let
-  allPackages = import ./packages.nix { inherit pkgs inputs; };
+  allPackages = import ./packages.nix { inherit pkgs inputs self; };
   cursorPkg = pkgs.catppuccin-cursors.mochaDark;
   cursorName = "catppuccin-mocha-dark-cursors";
   cursorSize = 24;
@@ -20,24 +20,24 @@ in
   home.file.".face".source = "${self}/assets/profile.jpg";
 
   imports = [
-    ../../home/niri
-    ../../home/programs/browsers
-    ../../home/programs/desktop
-    ../../home/programs/editors
+    "${self}/home/niri"
+    "${self}/home/programs/browsers"
+    "${self}/home/programs/desktop"
+    "${self}/home/programs/editors"
 
-    ../../home/programs/gamedev/godot.nix
-    ../../home/programs/gamedev/unity.nix
-    # ../../home/programs/games/bakkesmod.nix
-    ../../home/programs/terminal/nushell.nix
-    ../../home/programs/terminal/zoxide.nix
-    ../../home/programs/discord.nix
-    ../../home/programs/email.nix
-    ../../home/programs/fastfetch.nix
-    ../../home/programs/ghostty.nix
-    ../../home/programs/mangohud.nix
-    ../../home/programs/xremap.nix
+    "${self}/home/programs/gamedev/godot.nix"
+    "${self}/home/programs/gamedev/unity.nix"
+    # "${self}/home/programs/games/bakkesmod.nix"
+    "${self}/home/programs/terminal/nushell.nix"
+    "${self}/home/programs/terminal/zoxide.nix"
+    "${self}/home/programs/discord.nix"
+    "${self}/home/programs/email.nix"
+    "${self}/home/programs/fastfetch.nix"
+    "${self}/home/programs/ghostty.nix"
+    "${self}/home/programs/mangohud.nix"
+    "${self}/home/programs/xremap.nix"
 
-    ../../system/shell/zsh.nix
+    "${self}/system/shell/zsh.nix"
 
     inputs.nixvim.homeModules.nixvim
     inputs.nixcord.homeModules.nixcord
