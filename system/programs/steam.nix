@@ -39,7 +39,7 @@
     xwayland
     gamescope
 
-    wineWowPackages.stagingFull
+    wineWow64Packages.stagingFull
     winetricks
     freetype
     fontconfig

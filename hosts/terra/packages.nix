@@ -26,7 +26,7 @@ with pkgs;
   proton-pass
 
   # Gaming Utilities
-  # wineWowPackages.stable
+  # wineWow64Packages.stable
   # wine
   # winetricks
   mono
