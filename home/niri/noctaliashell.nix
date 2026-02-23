@@ -11,6 +11,9 @@
 
   programs.noctalia-shell = {
     enable = true;
+
+    systemd.enable = true;
+
     settings = {
       bar = {
         density = "compact";
@@ -34,6 +37,7 @@
             }
             {
               id = "VPN";
+              displayMode = "alwaysShow";
             }
             {
               id = "ActiveWindow";
@@ -62,6 +66,8 @@
             {
               id = "ControlCenter";
               useDistroLogo = true;
+              icon = "noctalia"; # used when distro logo is set to false
+              enableColorization = true;
             }
           ];
         };
@@ -72,6 +78,16 @@
       };
 
       colorSchemes.predefinedScheme = "Catppuccin-Lavender";
+
+      location = {
+        analogClockInCalendar = "true";
+        name = "Indianapolis, US";
+        useFahrenheit = true;
+      };
+
+      network = {
+
+      };
     };
     # this may also be a string or a path to a JSON file.
   };
