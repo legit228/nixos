@@ -63,7 +63,7 @@
 
     # Local AI
     koboldcpp # AI
-    ollama-rocm # AI
+    # ollama-rocm # AI
     lmstudio # AI
     sillytavern # AI Frontend
   ];
