@@ -19,6 +19,9 @@
           sponsorblock
           ublock-origin
           onepassword-password-manager
+          # kagi-privacy-pass
+          kagi-search
+          kagi-translate
         ];
 
         settings = {
@@ -197,12 +200,13 @@
               definedAliases = [ "@ddg" ];
             };
 
-            kagi = {
+            Kagi = {
               urls = [
                 { template = "https://kagi.com/search?q={searchTerms}"; }
               ];
-              icon = "https://kagi.com/favicon.ico";
-              definedAliases = [ "@kagi" ];
+              # icon = "https://kagi.com/favicon.ico";
+              icon = "https://assets.kagi.com/v2/favicon-32x32.png";
+              definedAliases = [ "@kg" "@kagi" ];
             };
 
             # Hide Bing from the UI
