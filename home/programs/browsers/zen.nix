@@ -92,6 +92,10 @@
           "78272b6fa58f4a1abaac99321d503a20@proton.me" = "proton-pass";
           "sponsorBlocker@ajay.app" = "sponsorblock";
           "{d634138d-c276-4fc8-924b-40a0ea21d284}" = "1password-x-password-manager";
+          # "{446900e4-71c2-419f-a6a7-df9c091e268b}" = "bitwarden";
+          "search@kagi.com" = "kagi-search";
+          "{bd6be57d-91d7-41d2-b61d-3ba20f7942e5}" = "kagi-translate";
+          # "privacypass@kagi.com" = "kagi-privacy-pass";
         };
         Preferences = mkLockedAttrs {
           "browser.tabs.warnOnClose" = false;
@@ -148,14 +152,32 @@
                 {
                   name = "homepage";
                   url = "https://nixos.org/";
+                  tags = [
+                    "nixos"
+                  ];
                 }
                 {
                   name = "wiki";
+                  url = "https://wiki.nixos.org/";
                   tags = [
                     "wiki"
-                    "nix"
+                    "nixos"
                   ];
-                  url = "https://wiki.nixos.org/";
+                }
+                {
+                  name = "nixpkgs";
+                  url = "https://github.com/NixOS/nixpkgs";
+                  tags = [
+                    "nixpkgs"
+                  ];
+                }
+                {
+                  name = "Kagi Summarize";
+                  url = "javascript:void(open('https://kagi.com/summarizer/index.html?url='+encodeURIComponent(location.href)+'#url','Kagi%20Universal%20Summarizer','toolbar=no,width=710,height=685'));";
+                  tags = [
+                    "summarize"
+                    "universal"
+                  ];
                 }
               ];
             }
@@ -171,20 +193,20 @@
             id = "c6de089c-410d-4206-961d-ab11f988d40a";
             icon = "🌱";
             position = 1000;
-            theme = {
-              type = "gradient";
-              colors = [
-                {
-                  red = 180;
-                  green = 190;
-                  blue = 254;
-                  algorithm = "floating";
-                  type = "explicit-lightness";
-                }
-              ];
-              opacity = 0.8;
-              texture = 0.5;
-            };
+            # theme = {
+            #   type = "gradient";
+            #   colors = [
+            #     {
+            #       red = 180;
+            #       green = 190;
+            #       blue = 254;
+            #       algorithm = "floating";
+            #       type = "explicit-lightness";
+            #     }
+            #   ];
+            #   opacity = 0.8;
+            #   texture = 0.5;
+            # };
           };
           "Shopping" = {
             id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
@@ -221,20 +243,36 @@
 
         search = {
           force = true;
-          default = "kagi";
+          default = "Kagi";
           order = [
-            "kagi"
-            "searxng"
-            "ddg"
+            "Kagi"
+            "NixOS Wiki"
             "Nix Packages"
             "Nix Options"
             "Home Manager Options"
+            "searxng"
+            "ddg"
           ];
           engines =
             let
               nixSnowflakeIcon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             in
             {
+              "NixOS Wiki" = {
+                urls = [
+                  {
+                    template = "https://wiki.nixos.org/w/index.php?search={searchTerms}";
+                    params = [
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+                icon = nixSnowflakeIcon;
+                definedAliases = [ "nw" "@nw" ];
+              };
               "Nix Packages" = {
                 urls = [
                   {
@@ -256,7 +294,7 @@
                   }
                 ];
                 icon = nixSnowflakeIcon;
-                definedAliases = [ "np" ];
+                definedAliases = [ "np" "@np" ];
               };
               "Nix Options" = {
                 urls = [
@@ -275,7 +313,7 @@
                   }
                 ];
                 icon = nixSnowflakeIcon;
-                definedAliases = [ "nop" ];
+                definedAliases = [ "nop" "@nop" ];
               };
               "Home Manager Options" = {
                 urls = [
@@ -294,19 +332,19 @@
                   }
                 ];
                 icon = nixSnowflakeIcon;
-                definedAliases = [ "hmop" ];
+                definedAliases = [ "hmop" "@hmop" ];
               };
 
               searxng = {
                 urls = [
                   { template = "https://searx.org/search?q={searchTerms}"; }
                 ];
-                icon = "https://searx.org/favicon.ico";
-                updateInterval = 86400000; # 24h
-                definedAliases = [ "searx" ];
                 suggestUrls = [
                   { template = "https://searx.org/autosuggest?q={searchTerms}"; }
                 ];
+                icon = "https://searx.org/favicon.ico";
+                updateInterval = 86400000; # 24h
+                definedAliases = [ "searx" "@searx" ];
               };
 
               ddg = {
@@ -314,17 +352,20 @@
                   { template = "https://duckduckgo.com/?q={searchTerms}"; }
                 ];
                 icon = "https://duckduckgo.com/favicon.ico";
-                definedAliases = [ "ddg" ];
+                definedAliases = [ "ddg" "@ddg" ];
               };
 
-              kagi = {
+              Kagi = {
                 urls = [
                   {
                     template = "https://kagi.com/search?q={searchTerms}";
                   }
                 ];
-                icon = "https://kagi.com/favicon.ico";
-                definedAliases = [ "@kagi" ];
+                suggestUrls = [
+                  { template = "https://kagi.com/api/autosuggest?q={searchTerms}"; }
+                ];
+                icon = "https://assets.kagi.com/v2/favicon-32x32.png";
+                definedAliases = [ "kg" "@kg" "@kagi" ];
               };
 
               # Hide Bing from the UI
