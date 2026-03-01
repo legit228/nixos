@@ -141,9 +141,9 @@
 
         search = {
           force = true;
-          default = "kagi";
+          default = "Kagi";
           order = [
-            "kagi"
+            "Kagi"
             "searxng"
             "nix-packages"
             "nixos-wiki"
