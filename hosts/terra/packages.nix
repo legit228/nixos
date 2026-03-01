@@ -56,6 +56,7 @@ with pkgs;
   walker
 
   # Development
+  exercism # learning tool
   rustup
   #  gleam
   #  ocaml
