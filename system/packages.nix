@@ -23,6 +23,7 @@
   environment.systemPackages = with pkgs; [
     wget
     git
+    nftables # Ability to interact with nftables firewall, reset rules with `nft flush ruleset`
     jujutsu # Modern VCS compatible with git
     gitleaks # Check for any secrets being leaked
     gparted # NEEDS to be system package, run with `sudo -E gparted`
