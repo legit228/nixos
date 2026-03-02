@@ -89,7 +89,7 @@
         ExtensionSettings = mkExtensionSettings {
           "uBlock0@raymondhill.net" = "ublock-origin";
           "addon@darkreader.org" = "darkreader";
-          "78272b6fa58f4a1abaac99321d503a20@proton.me" = "proton-pass";
+          # "78272b6fa58f4a1abaac99321d503a20@proton.me" = "proton-pass";
           "sponsorBlocker@ajay.app" = "sponsorblock";
           "{d634138d-c276-4fc8-924b-40a0ea21d284}" = "1password-x-password-manager";
           # "{446900e4-71c2-419f-a6a7-df9c091e268b}" = "bitwarden";
@@ -271,7 +271,10 @@
                   }
                 ];
                 icon = nixSnowflakeIcon;
-                definedAliases = [ "nw" "@nw" ];
+                definedAliases = [
+                  "nw"
+                  "@nw"
+                ];
               };
               "Nix Packages" = {
                 urls = [
@@ -294,7 +297,10 @@
                   }
                 ];
                 icon = nixSnowflakeIcon;
-                definedAliases = [ "np" "@np" ];
+                definedAliases = [
+                  "np"
+                  "@np"
+                ];
               };
               "Nix Options" = {
                 urls = [
@@ -313,7 +319,10 @@
                   }
                 ];
                 icon = nixSnowflakeIcon;
-                definedAliases = [ "nop" "@nop" ];
+                definedAliases = [
+                  "nop"
+                  "@nop"
+                ];
               };
               "Home Manager Options" = {
                 urls = [
@@ -332,7 +341,10 @@
                   }
                 ];
                 icon = nixSnowflakeIcon;
-                definedAliases = [ "hmop" "@hmop" ];
+                definedAliases = [
+                  "hmop"
+                  "@hmop"
+                ];
               };
 
               searxng = {
@@ -344,7 +356,10 @@
                 ];
                 icon = "https://searx.org/favicon.ico";
                 updateInterval = 86400000; # 24h
-                definedAliases = [ "searx" "@searx" ];
+                definedAliases = [
+                  "searx"
+                  "@searx"
+                ];
               };
 
               ddg = {
@@ -352,7 +367,10 @@
                   { template = "https://duckduckgo.com/?q={searchTerms}"; }
                 ];
                 icon = "https://duckduckgo.com/favicon.ico";
-                definedAliases = [ "ddg" "@ddg" ];
+                definedAliases = [
+                  "ddg"
+                  "@ddg"
+                ];
               };
 
               Kagi = {
@@ -365,7 +383,11 @@
                   { template = "https://kagi.com/api/autosuggest?q={searchTerms}"; }
                 ];
                 icon = "https://assets.kagi.com/v2/favicon-32x32.png";
-                definedAliases = [ "kg" "@kg" "@kagi" ];
+                definedAliases = [
+                  "kg"
+                  "@kg"
+                  "@kagi"
+                ];
               };
 
               # Hide Bing from the UI

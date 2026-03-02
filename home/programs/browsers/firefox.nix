@@ -14,7 +14,7 @@
 
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           #          bitwarden
-          proton-pass
+          # proton-pass
           darkreader
           sponsorblock
           ublock-origin
@@ -206,7 +206,10 @@
               ];
               # icon = "https://kagi.com/favicon.ico";
               icon = "https://assets.kagi.com/v2/favicon-32x32.png";
-              definedAliases = [ "@kg" "@kagi" ];
+              definedAliases = [
+                "@kg"
+                "@kagi"
+              ];
             };
 
             # Hide Bing from the UI
