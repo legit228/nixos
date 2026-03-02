@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   ...
 }:
 
@@ -14,6 +15,11 @@
       "catppuccin"
       "catppuccin-icons"
       "vhs"
+    ];
+    extraPackages = with pkgs; [
+      nil
+      nixd
+      nixfmt
     ];
     userSettings = {
       features = {
@@ -48,11 +54,45 @@
       auto_update = false;
       base_keymap = "VSCode";
       theme = lib.mkForce {
-        mode = "dark";
+        mode = "system";
         light = "Catppuccin Latte";
         dark = "Catppuccin Mocha";
       };
       show_whitespaces = "all";
+
+      lsp = {
+        nil = {
+          binary = {
+            path = "/run/current-system/sw/bin/nil";
+          };
+        };
+        # nixd = {
+        #   binary = {
+        #     path = "/run/current-system/sw/bin/nixd";
+        #   };
+        # };
+        # nix = {
+        #   binary = {
+        #     path_lookup = true;
+        #   };
+        # };
+      };
+
+      languages = {
+        Nix = {
+          language_servers = [
+            "!nixd"
+            "nil"
+          ];
+          formatter.external = {
+            command = "nixfmt";
+            arguments = [
+              "--quiet"
+              "--"
+            ];
+          };
+        };
+      };
     };
   };
 }
