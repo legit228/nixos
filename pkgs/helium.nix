@@ -1,49 +1,68 @@
 {
   lib,
-  pkgs,
-  ...
-}:
-pkgs.appimageTools.wrapType2 rec {
-  pname = "helium";
-  version = "0.7.2.1";
-
-  src = let
-    platformMap = {
-      "x86_64-linux" = "x86_64";
-      "aarch64-linux" = "arm64";
+  fetchurl,
+  appimageTools,
+  stdenv,
+  _experimental-update-script-combinators,
+  nix-update-script,
+  widevine-cdm,
+  enableWideVine ? false,
+}: let
+  version = "0.9.4.1";
+  sourceMap = {
+    x86_64-linux = fetchurl {
+      url = "https://github.com/imputnet/helium-linux/releases/download/${version}/helium-${version}-x86_64.AppImage";
+      hash = "sha256-N5gdWuxOrIudJx/4nYo4/SKSxakpTFvL4zzByv6Cnug=";
     };
-
-    platform = platformMap.${pkgs.stdenv.hostPlatform.system};
-
-    hashes = {
-      "x86_64-linux" = "sha256-PwXgpmauBN6EXoZE6HnpgrisrO5a9VzQEDv3T2OsPnc=";
-      "aarch64-linux" = "sha256-daIKkKrDR+HZq4dbGL8E92eHVE277TvdqxbvTAWZDvM=";
+    aarch64-linux = fetchurl {
+      url = "https://github.com/imputnet/helium-linux/releases/download/${version}/helium-${version}-arm64.AppImage";
+      hash = "sha256-BvU0bHtJMd6e09HY+9Vhycr3J0O2hunRJCHXpzKF8lk=";
     };
-
-    hash = hashes.${pkgs.stdenv.hostPlatform.system};
-  in
-    pkgs.fetchurl {
-      url = "https://github.com/imputnet/helium-linux/releases/download/${version}/helium-${version}-${platform}.AppImage";
-      inherit hash;
-    };
-
-  extraInstallCommands = let
-    contents = pkgs.appimageTools.extractType2 {inherit pname version src;};
-  in ''
-    mkdir -p "$out/share/applications"
-    mkdir -p "$out/share/lib/helium"
-    cp -r ${contents}/opt/helium/locales "$out/share/lib/helium"
-    cp -r ${contents}/usr/share/* "$out/share"
-    cp "${contents}/${pname}.desktop" "$out/share/applications/"
-    substituteInPlace $out/share/applications/${pname}.desktop --replace-fail 'Exec=AppRun' 'Exec=${meta.mainProgram}'
-  '';
-
-  meta = {
-    description = "Private, fast, and honest web browser based on Chromium";
-    homepage = "https://github.com/imputnet/helium-chromium";
-    changelog = "https://github.com/imputnet/helium-linux/releases/tag/${version}";
-    platforms = ["x86_64-linux" "aarch64-linux"];
-    license = lib.licenses.gpl3;
-    mainProgram = "helium";
   };
-}
+in
+  appimageTools.wrapAppImage rec {
+    pname = "helium";
+    inherit version;
+
+    src = appimageTools.extract {
+      inherit pname version;
+
+      src = sourceMap.${stdenv.hostPlatform.system} or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
+
+      postExtract =
+        lib.optionalString enableWideVine
+        # bash
+        ''
+          mkdir -p $out/opt/helium/WidevineCdm
+          cp -a ${widevine-cdm}/share/google/chrome/WidevineCdm/* $out/opt/helium/WidevineCdm/
+        '';
+    };
+
+    passthru.updateScript = _experimental-update-script-combinators.sequence [
+      (nix-update-script {extraArgs = ["--system" "x86_64-linux" "--flake"];})
+      (nix-update-script {extraArgs = ["--system" "aarch64-linux" "--version" "skip" "--flake"];})
+    ];
+
+    extraInstallCommands =
+      # bash
+      ''
+        mkdir -p "$out/share/applications"
+        mkdir -p "$out/share/lib/helium"
+        cp -r ${src}/opt/helium/locales "$out/share/lib/helium"
+        cp -r ${src}/usr/share/* "$out/share"
+        cp "${src}/${pname}.desktop" "$out/share/applications/"
+        substituteInPlace $out/share/applications/${pname}.desktop --replace-fail 'Exec=helium %U' 'Exec=${meta.mainProgram} %U'
+      '';
+
+    meta = {
+      description = "Private, fast, and honest web browser based on Chromium";
+      homepage = "https://github.com/imputnet/helium-chromium";
+      changelog = "https://github.com/imputnet/helium-linux/releases/tag/${version}";
+      platforms = ["x86_64-linux" "aarch64-linux"];
+      license =
+        if enableWideVine
+        then lib.licenses.unfree
+        else lib.licenses.gpl3;
+      mainProgram = "helium";
+    };
+  }
