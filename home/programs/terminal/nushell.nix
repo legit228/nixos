@@ -16,8 +16,9 @@
       # for editing directly to config.nu
       extraConfig = ''
 
-        # Only shows `fastfetch` if interactive terminal and not inside nix shell
-        if ($nu.is-interactive == true) and ("IN_NIX_SHELL" not-in $env) {
+        # Only shows `fastfetch` if interactive terminal, not inside nix shell, and not inside zed or vscode editors
+        # Note: ZED_FORCE_CLI_MODE is only set after starting Zed and is more reliable than TERM_PROGRAM
+        if ($nu.is-interactive == true) and ("IN_NIX_SHELL" not-in $env) and ("ZED_FORCE_CLI_MODE" not-in $env) and ("TERM_PROGRAM" not-in $env or $env.TERM_PROGRAM != "vscode") {
           fastfetch
         }
 
@@ -31,7 +32,7 @@
         # Disables intro banner
         $env.config.show_banner = false
 
-        $env.EDITOR = "hx"
+        $env.EDITOR = "nvim"
         $env.PATH ++= ['~/.local/bin']
 
         # Sets default NixOS flake for `nh` to simplify command to `nh os switch`
