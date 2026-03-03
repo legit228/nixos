@@ -62,27 +62,19 @@
 
       lsp = {
         nil = {
-          binary = {
-            path = "/run/current-system/sw/bin/nil";
-          };
+          binary.path = "/run/current-system/sw/bin/nil";
+          autoArchive = true;
         };
         # nixd = {
-        #   binary = {
-        #     path = "/run/current-system/sw/bin/nixd";
-        #   };
-        # };
-        # nix = {
-        #   binary = {
-        #     path_lookup = true;
-        #   };
+        #   binary.path = "/run/current-system/sw/bin/nixd";
         # };
       };
 
       languages = {
         Nix = {
           language_servers = [
-            "!nixd"
             "nil"
+            "!nixd"
           ];
           formatter.external = {
             command = "nixfmt";
