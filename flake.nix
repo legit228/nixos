@@ -28,10 +28,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixcord = {
-      url = "github:kaylorben/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixcord.url = "github:kaylorben/nixcord";
+
+    nixmate.url = "github:daskladas/nixmate";
 
     nixflix = {
       url = "github:kiriwalawren/nixflix";

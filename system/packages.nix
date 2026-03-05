@@ -57,6 +57,7 @@
     base16-schemes # Themeing
     ddcutil
     localsend # AirDrop alternative
+    inputs.nixmate.packages.${stdenv.hostPlatform.system}.default # NixOS TUI helper
 
     # Connect to iPhone over USB
     usbmuxd
