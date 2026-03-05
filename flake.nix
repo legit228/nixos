@@ -33,6 +33,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixflix = {
+      url = "github:kiriwalawren/nixflix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -91,7 +96,14 @@
               umu.enable = true;
               gamescope = {
                 enable = true;
-                args = [ "-f" "-w 3840" "-h 1600" "-W 3840" "-H 1600" "--force-grab-cursor" ];
+                args = [
+                  "-f"
+                  "-w 3840"
+                  "-h 1600"
+                  "-W 3840"
+                  "-H 1600"
+                  "--force-grab-cursor"
+                ];
               };
 
               # Additional commands before the game starts
