@@ -18,7 +18,6 @@ with pkgs;
   prismlauncher
   nautilus
   file-roller
-  qbittorrent
   termius
   obsidian
   cider-2
