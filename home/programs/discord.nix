@@ -1,6 +1,5 @@
 {
   pkgs,
-  self,
   ...
 }:
 
@@ -168,7 +167,6 @@
         showHiddenThings.enable = true; # show various hidden / moderator only things in servers
         showTimeoutDuration.enable = true; # shows length of a user's timeout remaining
         silentMessageToggle.enable = true; # adds button to send a silent message
-        sortFriendRequests.enable = true; # sort friend requests by order received
         # spotifyControls.enable = true;
         spotifyCrack.enable = true; # free listen along
         # spotifyShareCommands.enable = true; # adds commands for sharing track, album, artist
@@ -186,7 +184,6 @@
         validReply.enable = true; # fixes "Message could not be loaded" upon hjovering over replies
         validUser.enable = true; # fixes mentions for unknown users showing up as "@unknown-user"
         voiceChatDoubleClick.enable = true; # joins voice chats with a double click instead of single click
-        # vencordToolbox.enable = true;
         viewIcons.enable = true; # makes avatars and banners clickable
         viewRaw.enable = true; # copy and view the raw data of any message
         voiceDownload.enable = true; # adds download button for voice messages
@@ -204,7 +201,13 @@
         anammox.enable = true; # hides various nitro / store features
         equicordToolbox.enable = true; # adds button at top right that houses equicord quick actions
         # invisibleChat.enable = true; # encrypt messages in non-suspicious way
-        questify.enable = true; # hide quests, complete in background, etc.
+        questify = {
+          enable = true; # hide quests, complete in background, etc.
+          # Complete quests in background
+          completeAchievementQuestsInBackground = true;
+          completeGameQuestsInBackground = true;
+          completeVideoQuestsInBackground = true;
+        };
         moreCommands.enable = true; # adds many fun commands
         # moreKaomoji.enable = true; # adds more Kaomojis (table flip style, etc.)
         moreUserTags.enable = true; # adds tags labeling apps, webhooks, mods, admins, etc.
@@ -217,13 +220,33 @@
         anammox.enable = true; # hides various nitro / store features
         equicordToolbox.enable = true; # adds button at top right that houses equicord quick actions
         # invisibleChat.enable = true; # encrypt messages in non-suspicious way
-        questify.enable = true; # hide quests, complete in background, etc.
+        questify = {
+          enable = true; # hide quests, complete in background, etc.
+          # Complete quests in background
+          completeAchievementQuestsInBackground = true;
+          completeGameQuestsInBackground = true;
+          completeVideoQuestsInBackground = true;
+        };
         moreCommands.enable = true; # adds many fun commands
         # moreKaomoji.enable = true; # adds more Kaomojis (table flip style, etc.)
         moreUserTags.enable = true; # adds tags labeling apps, webhooks, mods, admins, etc.
         youtubeDescription.enable = true; # adds description to embedded youtube videos
       };
     };
+
+    # vesktopConfig = {
+    #   plugins = {
+    #     sortFriendRequests.enable = true; # sort friend requests by order received
+    #     vencordToolbox.enable = true;
+    #   };
+    # };
+
+    # vencordConfig = {
+    #   plugins = {
+    #     sortFriendRequests.enable = true; # sort friend requests by order received
+    #     vencordToolbox.enable = true;
+    #   };
+    # };
 
   };
 }
